@@ -15,10 +15,11 @@ const requestURL = () => {
         if (err) {
           fs.writeFile(filePath, body, (err) => {
             if (err) throw err;
-            console.log('The file has been saved!');
             const stats = fs.statSync(filePath);
             const fileSizeInBytes = stats.size;
-            console.log("downloaded" + fileSizeInBytes);
+            //console.log('The file has been saved!');
+            console.log(`The file has been saved! downloaded file size ="  ${fileSizeInBytes}`);
+          
           });
         } else {
           console.log('the file exists already');
