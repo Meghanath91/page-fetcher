@@ -17,9 +17,8 @@ const requestURL = () => {
             if (err) throw err;
             const stats = fs.statSync(filePath);
             const fileSizeInBytes = stats.size;
-            //console.log('The file has been saved!');
             console.log(`The file has been saved! downloaded file size ="  ${fileSizeInBytes}`);
-          
+            rl.close();
           });
         } else {
           console.log('the file exists already');
@@ -32,10 +31,9 @@ const requestURL = () => {
             if (answer === 'y') {
               fs.writeFile(filePath, body, (err) => {
                 if (err) throw err;
-                console.log('The file has been saved!');
                 const stats = fs.statSync(filePath);
                 const fileSizeInBytes = stats.size;
-                console.log("downloaded" + fileSizeInBytes);
+                console.log(`The file has been saved! downloaded file size ="  ${fileSizeInBytes}`);
                 rl.close();
               });
             } else {
@@ -50,8 +48,6 @@ const requestURL = () => {
     } else {
       console.log("Invalid URL,Please Enter New URL");
     }
-
- 
   });
 };
 requestURL();
